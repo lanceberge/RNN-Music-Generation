@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 
-import requests
-from bs4 import BeautifulSoup
-import re
-from IPython.display import Audio
-from pretty_midi import PrettyMIDI
-
-
 def download_midis(download_dir, genre='classic'):
+    import requests
+    from bs4 import BeautifulSoup
+    import re
+    
     """
     Download midi files from midiword.com
     Code from: https://stackoverflow.com/questions/52124737/why-cant-i-download-a-midi-file-with-python-requests
@@ -36,6 +33,9 @@ def download_midis(download_dir, genre='classic'):
         
         
 def play_midi(midi_path):
+    from IPython.display import Audio
+    from pretty_midi import PrettyMIDI
+
     midi_data = PrettyMIDI(midi_file=midi_path)
 
     return Audio(midi_data.synthesize(fs=22050), rate=22050)
